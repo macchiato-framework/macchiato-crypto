@@ -1,7 +1,7 @@
 (ns macchiato.test.crypto.core-test
   (:require
-    [macchiato.bcrypt :as bcrypt]
-    [macchiato.scrypt :as scrypt]
+    [macchiato.crypto.bcrypt :as bcrypt]
+    [macchiato.crypto.scrypt :as scrypt]
     [cljs.test :refer-macros [async is are deftest testing use-fixtures]]))
 
 (def secret "my secret")

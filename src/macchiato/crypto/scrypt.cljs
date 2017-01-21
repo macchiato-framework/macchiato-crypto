@@ -1,4 +1,4 @@
-(ns macchiato.scrypt
+(ns macchiato.crypto.scrypt
   (:require [cljs.nodejs :as node]))
 
 (def ^:private scrypt (node/require "scrypt"))

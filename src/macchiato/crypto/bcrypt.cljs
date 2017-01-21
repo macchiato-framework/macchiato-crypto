@@ -1,4 +1,4 @@
-(ns macchiato.bcrypt
+(ns macchiato.crypto.bcrypt
   (:require [cljs.nodejs :as node]))
 
 (def ^:private bcrypt (node/require "bcrypt"))
