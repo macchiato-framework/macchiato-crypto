@@ -13,10 +13,36 @@
 
 (deftest test-bcrypt-async
   (async done
-
-    (done)))
+    (bcrypt/encrypt-async
+      secret
+      (fn [err result]
+        (is (bcrypt/check secret result))
+        (done))))
+  (async done
+    (bcrypt/check-async
+      secret
+      (bcrypt/encrypt secret)
+      (fn [err result]
+        (is result)
+        (done)))))
 
 (deftest test-scrypt
   (is (scrypt/check secret (scrypt/encrypt secret)))
   (is (not (scrypt/check secret (scrypt/encrypt "some other secret"))))
   (is (not (scrypt/check "some other secret" (scrypt/encrypt secret)))))
+
+(deftest test-scrypt-async
+  (async done
+    (scrypt/encrypt-async
+      secret
+      scrypt/default-opts
+      (fn [err result]
+        (is (scrypt/check secret result))
+        (done))))
+  (async done
+    (scrypt/check-async
+      secret
+      (scrypt/encrypt secret)
+      (fn [err result]
+        (is result)
+        (done)))))

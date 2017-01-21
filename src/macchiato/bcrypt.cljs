@@ -17,18 +17,13 @@
   "salt and hash the password, defaults to 11 rounds
   callback should accept the following arguments: err, result
   result is the hashed password"
-  ([pass rounds] (encrypt-async pass rounds nil))
+  ([raw cb] (encrypt-async raw 11 cb))
   ([raw rounds cb]
-    (if cb
-      (bcrypt.hash raw rounds cb)
-      (bcrypt.hash raw rounds))))
+   (bcrypt.hash raw rounds cb)))
 
 (defn check-async
   "compares plain text password with the hash
   callback should accept the following arguments: err, result
   result is a boolean"
-  ([raw hash] (check-async raw hash nil))
-  ([raw hash cb]
-  (if cb
-    (bcrypt.check raw hash cb)
-    (bcrypt.check raw hash))))
+  [raw hash cb]
+  (bcrypt.compare raw hash cb))

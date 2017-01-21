@@ -19,18 +19,16 @@
 
 (defn encrypt-async
   "accepts raw password, map with options, and a callback
-  the callback receives the following parameters: err, result"
-  ([raw opts] (encrypt-async raw opts nil))
+  the callback receives the following parameters: err, result
+  default-opts used when no options are provided"
+  ([raw cb]
+   (encrypt-async raw default-opts cb))
   ([raw opts cb]
-   (if cb
-     (scrypt.kdf raw (clj->js opts) cb)
-     (scrypt.kdf raw (clj->js opts)))))
+   (scrypt.kdf raw (clj->js opts) cb)))
 
 (defn check-async
   "checks the raw password against the hash
   the callback receives the following parameters: err, result
   result is a boolean"
-  ([raw hash]
-   (scrypt.verifyKdf hash raw))
-  ([raw hash cb]
-   (scrypt.verifyKdf hash raw cb)))
+  [raw hash cb]
+  (scrypt.verifyKdf hash raw cb))
