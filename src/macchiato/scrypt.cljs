@@ -1,7 +1,7 @@
 (ns macchiato.scrypt
   (:require [cljs.nodejs :as node]))
 
-(def scrypt (node/require "scrypt"))
+(def ^:private scrypt (node/require "scrypt"))
 
 (def default-opts {:N 1 :r 1 :p 1})
 

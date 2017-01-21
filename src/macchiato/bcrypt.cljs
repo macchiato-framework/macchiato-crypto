@@ -1,7 +1,7 @@
 (ns macchiato.bcrypt
   (:require [cljs.nodejs :as node]))
 
-(def bcrypt (node/require "bcrypt"))
+(def ^:private bcrypt (node/require "bcrypt"))
 
 (defn encrypt
   "salt and hash the password, defaults to 11 rounds"
