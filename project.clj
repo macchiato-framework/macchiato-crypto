@@ -6,14 +6,22 @@
   :license {:name "MIT License"
             :url "http://opensource.org/licenses/MIT"}
   :clojurescript? true
-  :dependencies [[org.clojure/clojure "1.8.0" :scope "provided"]
-                 [org.clojure/clojurescript "1.9.293" :scope "provided"]]
+  :dependencies [[org.clojure/clojure "1.9.0" :scope "provided"]
+                 [org.clojure/clojurescript "1.10.238" :scope "provided"]]
   :plugins [[codox "0.6.4"]
             [lein-doo "0.1.7"]
-            [lein-npm "0.6.2"]
+            [macchiato/lein-npm "0.6.6"]
             [lein-cljsbuild "1.1.4"]]
 
-  :npm {:dependencies [[bcrypt "1.0.2"]
+  :npm {:name "@macchiato/crypto"
+        :write-package-json true
+        :private false
+        :directories {:lib "src"}
+        :files ["src/*"]
+        :author {:name "Dmitri Sotnikov"
+                 :email "dmitri.sotnikov@gmail.com"
+                 :url "http://yogthos.net/"}
+        :dependencies [[bcrypt "1.0.2"]
                        [scrypt "6.0.3"]]}
   :profiles {:test
              {:cljsbuild
