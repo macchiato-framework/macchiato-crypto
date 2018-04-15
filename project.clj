@@ -11,7 +11,7 @@
   :plugins [[codox "0.6.4"]
             [lein-doo "0.1.7"]
             [macchiato/lein-npm "0.6.6"]
-            [lein-cljsbuild "1.1.4"]]
+            [lein-cljsbuild "1.1.7"]]
 
   :npm {:name "@macchiato/crypto"
         :write-package-json true
