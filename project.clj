@@ -1,4 +1,4 @@
-(defproject macchiato/crypto "0.0.4"
+(defproject macchiato/crypto "0.0.5"
   :description "a library for securely hashing passwords"
   :url "https://github.com/yogthos/macchiato-framework/macchiato-crypto"
   :scm {:name "git"
