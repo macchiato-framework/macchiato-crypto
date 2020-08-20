@@ -20,8 +20,8 @@
         :files ["src/*"]
         :author {:name "Dmitri Sotnikov"
                  :email "dmitri.sotnikov@gmail.com"
-                 :url "http://yogthos.net/"}
-        :dependencies [[bcrypt "1.0.2"]
+                 :url "http://yo5.0.0.net/"}
+        :dependencies [[bcrypt "5.0.0"]
                        [scrypt "6.0.3"]]}
   :profiles {:test
              {:cljsbuild

@@ -4,9 +4,9 @@
 (def ^:private bcrypt (node/require "bcrypt"))
 
 (defn encrypt
-  "salt and hash the password, defaults to 11 rounds"
-  ([raw] (encrypt raw 11))
-  ([raw rounds] (bcrypt.hashSync raw rounds)))
+  "salt and hash the password, defaults to 10 rounds"
+  ([raw] (encrypt raw 10))
+  ([raw rounds] (bcrypt.hashSync raw (bcrypt.genSaltSync rounds))))
 
 (defn check
   "compares plain text password with the hash returns a boolean"
@@ -14,10 +14,10 @@
   (bcrypt.compareSync raw hash))
 
 (defn encrypt-async
-  "salt and hash the password, defaults to 11 rounds
+  "salt and hash the password, defaults to 10 rounds
   callback should accept the following arguments: err, result
   result is the hashed password"
-  ([raw cb] (encrypt-async raw 11 cb))
+  ([raw cb] (encrypt-async raw 10 cb))
   ([raw rounds cb]
    (bcrypt.hash raw rounds cb)))
 
